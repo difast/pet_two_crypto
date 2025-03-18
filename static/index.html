@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypto Monitor</title>
+</head>
+<body>
+    <h1>Bitcoin Price: <span id="price"></span></h1>
+    <script>
+        const ws = new WebSocket("ws://localhost:8000/ws/price");
+        ws.onmessage = (event) => {
+            document.getElementById("price").textContent = event.data;
+        };
+    </script>
+</body>
+</html>
